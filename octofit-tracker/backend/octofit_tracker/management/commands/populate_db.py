@@ -19,17 +19,21 @@ class Command(BaseCommand):
         db.workouts.drop()
 
         # Insert test data directly into MongoDB
-        db.users.insert_many([
+        users = [
             {"_id": ObjectId(), "username": "thundergod", "email": "thundergod@mhigh.edu", "password": "password1"},
             {"_id": ObjectId(), "username": "metalgeek", "email": "metalgeek@mhigh.edu", "password": "password2"},
             {"_id": ObjectId(), "username": "zerocool", "email": "zerocool@mhigh.edu", "password": "password3"},
             {"_id": ObjectId(), "username": "crashoverride", "email": "crashoverride@mhigh.edu", "password": "password4"},
             {"_id": ObjectId(), "username": "sleeptoken", "email": "sleeptoken@mhigh.edu", "password": "password5"},
-        ])
+        ]
+        db.users.insert_many(users)
+
+        # Create a mapping of usernames to ObjectIds
+        username_to_id = {user["username"]: user["_id"] for user in users}
 
         db.teams.insert_many([
-            {"_id": ObjectId(), "name": "Blue Team", "members": ["thundergod", "metalgeek"]},
-            {"_id": ObjectId(), "name": "Gold Team", "members": ["zerocool", "crashoverride", "sleeptoken"]},
+            {"_id": ObjectId(), "name": "Blue Team", "members": [username_to_id["thundergod"], username_to_id["metalgeek"]]},
+            {"_id": ObjectId(), "name": "Gold Team", "members": [username_to_id["zerocool"], username_to_id["crashoverride"], username_to_id["sleeptoken"]]},
         ])
 
         db.activity.insert_many([
