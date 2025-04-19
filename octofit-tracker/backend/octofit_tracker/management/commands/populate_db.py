@@ -45,11 +45,11 @@ class Command(BaseCommand):
         ])
 
         db.leaderboard.insert_many([
-            {"_id": ObjectId(), "user": "thundergod", "score": 100},
-            {"_id": ObjectId(), "user": "metalgeek", "score": 90},
-            {"_id": ObjectId(), "user": "zerocool", "score": 95},
-            {"_id": ObjectId(), "user": "crashoverride", "score": 85},
-            {"_id": ObjectId(), "user": "sleeptoken", "score": 80},
+            {"_id": ObjectId(), "user": username_to_id["thundergod"], "score": 100},
+            {"_id": ObjectId(), "user": username_to_id["metalgeek"], "score": 90},
+            {"_id": ObjectId(), "user": username_to_id["zerocool"], "score": 95},
+            {"_id": ObjectId(), "user": username_to_id["crashoverride"], "score": 85},
+            {"_id": ObjectId(), "user": username_to_id["sleeptoken"], "score": 80},
         ])
 
         db.workouts.insert_many([
