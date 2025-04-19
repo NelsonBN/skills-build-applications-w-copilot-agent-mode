@@ -37,11 +37,11 @@ class Command(BaseCommand):
         ])
 
         db.activity.insert_many([
-            {"_id": ObjectId(), "user": "thundergod", "activity_type": "Cycling", "duration": "01:00:00"},
-            {"_id": ObjectId(), "user": "metalgeek", "activity_type": "Crossfit", "duration": "02:00:00"},
-            {"_id": ObjectId(), "user": "zerocool", "activity_type": "Running", "duration": "01:30:00"},
-            {"_id": ObjectId(), "user": "crashoverride", "activity_type": "Strength", "duration": "00:30:00"},
-            {"_id": ObjectId(), "user": "sleeptoken", "activity_type": "Swimming", "duration": "01:15:00"},
+            {"_id": ObjectId(), "user": username_to_id["thundergod"], "activity_type": "Cycling", "duration": "01:00:00"},
+            {"_id": ObjectId(), "user": username_to_id["metalgeek"], "activity_type": "Crossfit", "duration": "02:00:00"},
+            {"_id": ObjectId(), "user": username_to_id["zerocool"], "activity_type": "Running", "duration": "01:30:00"},
+            {"_id": ObjectId(), "user": username_to_id["crashoverride"], "activity_type": "Strength", "duration": "00:30:00"},
+            {"_id": ObjectId(), "user": username_to_id["sleeptoken"], "activity_type": "Swimming", "duration": "01:15:00"},
         ])
 
         db.leaderboard.insert_many([
